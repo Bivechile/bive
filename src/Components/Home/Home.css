@@ -1,0 +1,30 @@
+import from 
+.bg2{
+  height: inherit;
+  background-image: url('../../images/dia-mundial-de-la-alimentacion-1.webp');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+    overflow:scroll;
+  }
+  .bg{
+    height: 440px;
+    width: 440px;
+  }
+
+@media only screen and (max-width: 356px) {
+  .image { 
+    max-width: 100%;
+    max-height: 100%;
+ 
+
+
+
+  }
+}
+
+
+
+
+

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Maven+Pro&display=swap');
+
+
+.box-c{
+
+  background-color:rgb(206 233 230);
+
+}
+
+.paragraf6 {
+
+  font-family: 'Lato', sans-serif;
+  color:#446b5b;
+  align-items:center;
+  justify-content: center;
+  padding: 5% 30% 1%;
+  text-align:left;
+  font-weight: 900;
+}
+.p6{
+
+  font-family: 'Lato', sans-serif;
+  color:#446b5b;
+  align-items:center;
+  justify-content: center;
+ font-size:medium;
+  text-align:left;
+  font-weight: 900;
+  padding: 1% 30% 4%;
+  margin-bottom: 0%;
+}
+
+@media only screen and (max-width: 456px) {
+  .paragraf6 {
+
+    font-family: 'Lato', sans-serif;
+    color:#446b5b;
+    align-items:center;
+    justify-content: center;
+    padding: 8% 15% 1%;
+    text-align:left;
+    font-weight: 900;
+    font-size: large;
+  }
+  .p6{
+  
+    font-family: 'Lato', sans-serif;
+    color:#446b5b;
+    align-items:center;
+    justify-content: center;
+   font-size:small;
+    text-align:left;
+    font-weight: 900;
+    padding: 5% 15% 8%;
+    margin-bottom: 0%;
+  }
+}
+
+
+
+

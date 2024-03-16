@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Maven+Pro&display=swap');
+
+
+.box img {
+
+
+
+  height: 110%;
+
+
+ width: 100%;
+  
+  
+}
+.box  {
+
+
+
+
+
+ width: 100%;
+  
+  
+
+}
+
+@media only screen and (max-width: 356px) {
+  .image { 
+
+
+
+
+
+  }
+}
+
+
+
+

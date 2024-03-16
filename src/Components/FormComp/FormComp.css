@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Maven+Pro&display=swap');
+
+
+.mybuttonForm {
+margin-top: 27%;
+margin-left: 70%;
+background-color: rgb(144, 216, 216);;
+color:rgb(41, 100, 41);
+padding: 0.6%;
+border-radius: 5px;
+font-family: 'Lato', sans-serif;
+min-width: 120px;
+outline: none;
+font-weight: 800;
+
+
+}
+.paragraform{
+  font-family: 'Lato', sans-serif;
+  color:black;
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+  font-weight: 400;
+  font-size:xx-large;
+  background-image: none;
+
+}
+.paragraformsub{
+  font-family: 'Lato', sans-serif;
+  color:black;
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+  font-weight: 400;
+  font-size:20px;
+  background-image: none;
+  margin-top: 2%;
+
+}
+
+
+.bgfi {
+
+
+  outline: none;
+  background-repeat: repeat;
+  height:auto;
+  background-position: center;
+  align-items: center;
+  width: auto;
+
+
+  
+
+}
+
+.componente-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.componente-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: opacity 80000ms, transform 80000ms;
+}
+
+.componente-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.componente-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 80000ms, transform 80000ms;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 450px) {
+  .mybuttonFirst {
+    margin-top: 37%;
+    margin-left: 40%;
+    background-color: #446b5b;
+    
+    color:white;
+    padding: 0.1%;
+    border-radius: 15px;
+    font-family: 'Lato', sans-serif;
+    min-width: 220px;
+    
+    
+    }
+    .bg {
+
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position:120%;
+      background-attachment: local;
+   
+      max-width:450px;
+
+    }
+    
+}
+
+
+
+

@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Maven+Pro&display=swap');
+
+.contenedor-checkboxes {
+  border: 2px solid #ccc; /* Ancho y color del borde */
+  padding: 10px 35px 10px; /* Espaciado interno para separar los checkboxes del borde */
+  display: inline-block; /* Para que el borde se ajuste al contenido */
+  border-radius: 5px; /* Bordes redondeados, ajusta según tus preferencias */
+
+  
+} 
+.contenedor-checkboxes input[type="checkbox"] {
+  margin-right: 5px; /* Espaciado entre las cajas de verificación */
+}
+.mybuttonFormstep1 {
+
+background-color: rgb(144, 216, 216);;
+color:rgb(41, 100, 41);
+padding: 0.6%;
+border-radius: 5px;
+font-family: 'Lato', sans-serif;
+min-width: 120px;
+border: 1px solid #d0d0d0;
+font-weight: 800;
+margin-top: 5%;
+display: flex;
+justify-content: center;
+font-size: large;
+
+
+}
+.etiqueta1{
+  margin-bottom: 1%;
+  font-family: 'Lato', sans-serif;
+  color:black;
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+  font-weight: 400;
+  font-size:22px;
+  background-image: none;
+  margin-top: 2%;
+  
+}
+
+.select4 {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display:flex;
+  margin: auto;
+
+
+
+}
+.box-f3 {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display:flex;
+  margin: auto;
+  font-size: small;
+
+}
+.mini{
+  margin-top: 1%;
+  margin-left: 0.5%;
+}
+.alladoboton{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: small;
+  margin-top: 6%;
+  margin-left: 2%;
+}
+.paragraform{
+  font-family: 'Lato', sans-serif;
+  color:black;
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+  font-weight: 400;
+  font-size:xx-large;
+  background-image: none;
+
+}
+.paragraformsub{
+  font-family: 'Lato', sans-serif;
+  color:black;
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+  font-weight: 400;
+  font-size:20px;
+  background-image: none;
+  margin-top: 2%;
+
+}
+
+
+.bgf {
+
+  outline: none;
+  background-repeat: no-repeat;
+  height: auto;
+  background-position: center;
+  align-items: center;
+
+
+  
+
+}
+.botonera{
+
+
+}
+@media only screen and (max-width: 450px) {
+  .mybuttonFirst {
+    margin-top: 37%;
+    margin-left: 40%;
+    background-color: #446b5b;
+    
+    color:white;
+    padding: 0.1%;
+    border-radius: 15px;
+    font-family: 'Lato', sans-serif;
+    min-width: 220px;
+    
+    
+    }
+    .bg {
+
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position:120%;
+      background-attachment: local;
+   
+      max-width:450px;
+
+    }
+    
+}
+
+
+
+

@@ -1,0 +1,599 @@
+{
+  "categorias": [
+      {
+          "nombre": "Despensa",
+          "tag": "despensa",
+          "subcategorias": [
+              {
+                  "nombre": "Aceites",
+                  "tag": "aceites",
+                  "items": [
+                      {
+                          "nombre": "Aceite de coco",
+                          "tag": "aceite-de-coco"
+                      },
+                      {
+                          "nombre": "Aceite de oliva",
+                          "tag": "de-oliva"
+                      },
+                      {
+                          "nombre": "Otros aceites",
+                          "tag": "otros-aceites"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Conservas",
+                  "tag": "conservas",
+                  "items": [
+                      {
+                          "nombre": "Bebidas vegetales en lata",
+                          "tag": "bebidas-vegetales-en-lata"
+                      },
+                      {
+                          "nombre": "Mermeladas y chutneys",
+                          "tag": "mermeladas-y-chutneys"
+                      },
+                      {
+                          "nombre": "Chucrut y fermentados",
+                          "tag": "chucrut-y-fermentados"
+                      },
+                      {
+                          "nombre": "Otras conservas",
+                          "tag": "otras-conservas"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Granos",
+                  "tag": "granos",
+                  "items": [
+                      {
+                          "nombre": "Legumbres",
+                          "tag": "legumbres"
+                      },
+                      {
+                          "nombre": "Arroz",
+                          "tag": "arroz"
+                      },
+                      {
+                          "nombre": "Quinoa",
+                          "tag": "quinoa"
+                      },
+                      {
+                          "nombre": "Avenas",
+                          "tag": "avenas"
+                      },
+                      {
+                          "nombre": "Otros granos",
+                          "tag": "otros-granos"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Harinas",
+                  "tag": "harinas",
+                  "items": [
+                      {
+                          "nombre": "Harinas",
+                          "tag": "harinas"
+                      },
+                      {
+                          "nombre": "Harinas para hornear",
+                          "tag": "harinas-para-hornear"
+                      },
+                      {
+                          "nombre": "Harinas sin gluten",
+                          "tag": "harinas-sin-gluten"
+                      },
+                      {
+                          "nombre": "Espesantes",
+                          "tag": "espesantes"
+                      },
+                      {
+                          "nombre": "Levadura y polvos de hornear",
+                          "tag": "levadura-y-polvos-de-hornear"
+                      },
+                      {
+                          "nombre": "Premezclas",
+                          "tag": "premezclas"
+                      },
+                      {
+                          "nombre": "Almidones",
+                          "tag": "almidones"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Pastas",
+                  "tag": "pastas",
+                  "items": [
+                      {
+                          "nombre": "Pastas sin gluten",
+                          "tag": "pastas-sin-gluten"
+                      },
+                      {
+                          "nombre": "Pastas de legumbres",
+                          "tag": "pastas-de-legumbres"
+                      },
+                      {
+                          "nombre": "Pastas bajas en carbohidratos",
+                          "tag": "pastas-bajas-en-carbohidratos"
+                      },
+                      {
+                          "nombre": "Pastas altas en proteínas",
+                          "tag": "pastas-altas-en-proteinas"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Proteína vegetal",
+                  "tag": "proteina-vegetal",
+                  "items": [
+                      {
+                          "nombre": "Hamburguesas",
+                          "tag": "hamburguesas"
+                      },
+                      {
+                          "nombre": "Carne y pollo vegetal",
+                          "tag": "carne-y-pollo-vegetal"
+                      },
+                      {
+                          "nombre": "Batidos proteicos",
+                          "tag": "batidos-proteicos"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Todos los condimentos",
+                  "tag": "Todos los condimentos",
+                  "items": [
+                      {
+                          "nombre": "Ketchup, mayo y otras salsas",
+                          "tag": "ketchup-mayo-y-otras-salsas"
+                      },
+                      {
+                          "nombre": "Condimentos",
+                          "tag": "condimentos"
+                      },
+                      {
+                          "nombre": "Salsa de soya y aminos de coco",
+                          "tag": "salsa-de-soya-y-aminos-de-coco"
+                      },
+                      {
+                          "nombre": "Sal",
+                          "tag": "sal"
+                      },
+                      {
+                          "nombre": "Vinagres",
+                          "tag": "vinagres"
+                      },
+                      {
+                          "nombre": "Caldos",
+                          "tag": "caldos"
+                      },
+                      {
+                          "nombre": "Cremas vegetales",
+                          "tag": "cremas-vegetales"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Refrigerados",
+                  "tag": "refrigerados",
+                  "items": [
+                      {
+                          "nombre": "Caldo de hueso",
+                          "tag": "caldo-de-hueso"
+                      },
+                      {
+                          "nombre": "Fermentados",
+                          "tag": "fermentados"
+                      },
+                      {
+                          "nombre": "Probioticos para hacer yogurt",
+                          "tag": "probioticos-para-hacer-yogurt"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Desayuno",
+                  "tag": "desayuno",
+                  "items": [
+                      {
+                          "nombre": "Café y cacao",
+                          "tag": "cafe-y-cacao"
+                      },
+                      {
+                          "nombre": "Té e infusiones",
+                          "tag": "te-e-infusiones"
+                      },
+                      {
+                          "nombre": "Bebidas vegetales",
+                          "tag": "bebidas-vegetales"
+                      },
+                      {
+                          "nombre": "Cereales",
+                          "tag": "cereales"
+                      },
+                      {
+                          "nombre": "Ghee",
+                          "tag": "ghee"
+                      },
+                      {
+                          "nombre": "Mantequilla de frutos secos",
+                          "tag": "mantequilla-de-frutos-secos"
+                      },
+                      {
+                          "nombre": "Manjar y mermelada",
+                          "tag": "manjar-y-mermelada"
+                      },
+                      {
+                          "nombre": "Panadería y respotería",
+                          "tag": "panaderia-y-reposteria"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Endulzantes",
+                  "tag": "endulzantes",
+                  "items": [
+                      {
+                          "nombre": "Azúcar",
+                          "tag": "azucar"
+                      },
+                      {
+                          "nombre": "Stevia",
+                          "tag": "stevia"
+                      },
+                      {
+                          "nombre": "Otros endulzantes",
+                          "tag": "otros-endulzantes"
+                      },
+                      {
+                          "nombre": "Syrup y miel",
+                          "tag": "syrup-y-miel"
+                      },
+                      {
+                          "nombre": "Esencias y saborizantes",
+                          "tag": "esencias-y-saborizantes"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "nombre": "Colaciones",
+          "tag": "colaciones",
+          "subcategorias": [
+              {
+                  "nombre": "Chocolates y dulces",
+                  "tag": "chocolates-y-dulces",
+                  "items": [
+                      {
+                          "nombre": "Chocolates para cocinar",
+                          "tag": "chocolates-para-cocinar"
+                      },
+                      {
+                          "nombre": "Chocolates para consumir",
+                          "tag": "chocolates-para-consumir"
+                      },
+                      {
+                          "nombre": "Dulces y gomitas",
+                          "tag": "dulces-y-gomitas"
+                      },
+                      {
+                          "nombre": "Alfajores y bombones",
+                          "tag": "alfajores-y-bombones"
+                      },
+                      {
+                          "nombre": "Energy balls",
+                          "tag": "energy-balls"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Frutos secos y semillas",
+                  "tag": "frutos-secos-y-semillas",
+                  "items": [
+                      {
+                          "nombre": "Semillas",
+                          "tag": "semillas"
+                      },
+                      {
+                          "nombre": "Frutos secos",
+                          "tag": "frutos-secos"
+                      },
+                      {
+                          "nombre": "Frutos deshidratados",
+                          "tag": "frutos-deshidratados"
+                      },
+                      {
+                          "nombre": "Mantequilla de frutos secos",
+                          "tag": "mantequilla-de-frutos-secos"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Infantil",
+                  "tag": "infantil",
+                  "items": [
+                      {
+                          "nombre": "Compotas y jugos infantiles",
+                          "tag": "compotas-y-jugos-infantiles"
+                      },
+                      {
+                          "nombre": "Snacks de fruta",
+                          "tag": "snacks-de-fruta"
+                      },
+                      {
+                          "nombre": "Galletas infantiles",
+                          "tag": "galletas-infantiles"
+                      },
+                      {
+                          "nombre": "Cereales para niños",
+                          "tag": "cereales-para-niños"
+                      },
+                      {
+                          "nombre": "Suflitos y cabritas",
+                          "tag": "suflitos-y-cabritas"
+                      },
+                      {
+                          "nombre": "Snacks salados",
+                          "tag": "snacks-salados"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Jugos y bebidas",
+                  "tag": "jugos-y-bebidas",
+                  "items": [
+                      {
+                          "nombre": "Agua",
+                          "tag": "agua"
+                      },
+                      {
+                          "nombre": "Jugos",
+                          "tag": "jugos"
+                      },
+                      {
+                          "nombre": "Infusiones listas",
+                          "tag": "infusiones-listas"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Barritas nutritivas",
+                  "tag": "barritas-nutritivas",
+                  "items": [
+                      {
+                          "nombre": "Barras frutos secos y semillas",
+                          "tag": "barras-frutos-secos-y-semillas"
+                      },
+                      {
+                          "nombre": "Barras proteicas",
+                          "tag": "barras-proteicas"
+                      },
+                      {
+                          "nombre": "Barras veganas",
+                          "tag": "barras-veganas"
+                      },
+                      {
+                          "nombre": "Barras raw",
+                          "tag": "barras-raw"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Low carb",
+                  "tag": "low carb",
+                  "items": [
+                      {
+                          "nombre": "Barras low carb",
+                          "tag": "barras-low-carb"
+                      },
+                      {
+                          "nombre": "Chips saladas low carb",
+                          "tag": "chips-salados-low-carb"
+                      },
+                      {
+                          "nombre": "Carne-deshidratadas",
+                          "tag": "carne-deshidratada"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Picoteos",
+                  "tag": "picoteos",
+                  "items": [
+                      {
+                          "nombre": "hummus",
+                          "tag": "Hummus"
+                      },
+                      {
+                          "nombre": "Pastas untables",
+                          "tag": "pastas-untables"
+                      },
+                      {
+                          "nombre": "Galletas y crackers",
+                          "tag": "galletas-y-crackers"
+                      },
+                      {
+                          "nombre": "Papas fritas y chips salados",
+                          "tag": "papas-fritas-y-chips-salados"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "nombre": "Suplementos",
+          "tag": "suplementos",
+          "subcategorias": [
+              {
+                  "nombre": "Probioticos",
+                  "tag": "Probioticos",
+                  "items": [
+                      {
+                          "nombre": "Probioticos adultos",
+                          "tag": "probioticos-adultos"
+                      },
+                      {
+                          "nombre": "Probioticos infantiles",
+                          "tag": "probioticos-infantiles"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Suplementos",
+                  "tag": "suplementos",
+                  "items": [
+                      {
+                          "nombre": "vitaminas",
+                          "tag": "vitaminas"
+                      },
+                      {
+                          "nombre": "Omegas",
+                          "tag": "omegas"
+                      },
+                      {
+                          "nombre": "Minerales",
+                          "tag": "minerales"
+                      },
+                      {
+                          "nombre": "Aloe",
+                          "tag": "aloe"
+                      },
+                      {
+                          "nombre": "Colágeno",
+                          "tag": "colageno"
+                      },
+                      {
+                          "nombre": "Antioxidantes",
+                          "tag": "antioxidantes"
+                      },
+                      {
+                          "nombre": "Fibra",
+                          "tag": "fibra"
+                      },
+                      {
+                          "nombre": "Propoleo y jalea real",
+                          "tag": "propoleo-y-jalea-real"
+                      },
+                      {
+                          "nombre": "Magnesio",
+                          "tag": "magnesio"
+                      }
+                  ]
+              },
+              {
+                  "nombre": "Superalimentos",
+                  "tag": "superalimentos",
+                  "items": [
+                      {
+                          "nombre": "Fibras y aloe",
+                          "tag": "fibras-y-aloe"
+                      },
+                      {
+                          "nombre": "Cacao nibs y beans",
+                          "tag": "cacao-nibs-y-beans"
+                      },
+                      {
+                          "nombre": "Spirulina y chlorella",
+                          "tag": "spirulina-y-chlorella"
+                      },
+                      {
+                          "nombre": "Batidos y proteínas",
+                          "tag": "batidos-y-proteinas"
+                      },
+                      {
+                          "nombre": "Otros-superalimentos",
+                          "tag": "otros-superalimentos"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "nombre": "Intolerancias",
+          "tag": "intolerancias",
+          "subcategorias": [
+              {
+                  "nombre": "Etiqueta limpia",
+                  "tag": "limpia"
+              },
+              {
+                  "nombre": "Vegano",
+                  "tag": "vegano"
+              },
+              {
+                  "nombre": "Sin lacteos",
+                  "tag": "sin-leche"
+              },
+              {
+                  "nombre": "Sin gluten",
+                  "tag": "sin-gluten"
+              },
+              {
+                  "nombre": "Sin azúcar",
+                  "tag": "sin-azucar"
+              },
+              {
+                  "nombre": "sin azúcar añadida",
+                  "tag": "sin-azucar-añadida"
+              },
+              {
+                  "nombre": "Low carb",
+                  "tag": "low-carb"
+              },
+              {
+                  "nombre": "Orgánico",
+                  "tag": "organico"
+              },
+              {
+                  "nombre": "Sin nueces",
+                  "tag": "sin-nueces"
+              },
+              {
+                  "nombre": "Sin huevo",
+                  "tag": "sin-huevo"
+              },
+              {
+                  "nombre": "Sin soya",
+                  "tag": "sin-soya"
+              },
+              {
+                  "nombre": "Sin frutos secos",
+                  "tag": "sin-frutos-secos"
+              },
+              {
+                  "nombre": "Sin gmo",
+                  "tag": "sin-gmo"
+              },
+              {
+                  "nombre": "Halal",
+                  "tag": "halal"
+              },{
+                  "nombre": "Kosher",
+                  "tag": "kosher"
+              },
+              {
+                  "nombre": "Sin-sellos",
+                  "tag": "sin-sellos"
+              },
+              {
+                  "nombre": "Sin fructosa",
+                  "tag": "sin-fructosa"
+              },
+              {
+                  "nombre": "Sin gluten certificado",
+                  "tag": "sin-gluten-certificado"
+              },
+              {
+                  "nombre": "Producto chileno",
+                  "tag": "producto-chileno"
+              }
+          ]
+      }
+  ]
+}

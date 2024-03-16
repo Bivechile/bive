@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Maven+Pro&display=swap');
+
+
+
+
+.imageFoo {
+
+
+width: 150px;
+height: 75px;
+}
+.link{
+  color: black;
+}
+.box-f {
+display: flex;
+  justify-content:center;
+  align-items: center;
+
+
+ }
+ .box-f2 {
+  display:contents;
+    justify-content:center;
+    align-items: center;
+  
+  
+   }
+
+
+@media only screen and (max-width: 556px) {
+  .box-f {
+    display: flex;
+      justify-content:center;
+      align-items: center;
+      margin-bottom: 3%;
+    
+    
+     }
+}
+
+
+
+

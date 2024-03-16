@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Maven+Pro&display=swap');
+
+
+.box8{
+  background-color: #38B9B4;
+ 
+}
+
+
+.paragraf8E{
+
+  font-family: 'Lato', sans-serif;
+  color: rgb(59, 109, 74);
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+  font-weight: 900;
+  font-size:xx-large;
+  padding: 5%;
+
+}
+.paragraf8-s{
+
+  font-family: 'Lato', sans-serif;
+  color: rgb(59, 109, 74);
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+  font-weight: 400;
+  font-size:xx-large;
+  text-decoration: underline ;
+  padding-bottom: 2%;
+
+}
+.card8{
+  margin-top: 6%;
+border-radius: 2%;
+width: 50%;
+height: 150%;
+margin-bottom: 6% ;
+background-color: aliceblue;
+padding-bottom: 2%;
+
+
+
+}
+
+.mybutton8{
+
+
+    background-color: #446b5b;
+    border-color:white;
+    color:white;
+    border-radius: 15px;
+    font-family: 'Lato', sans-serif;
+    max-width: 390px;
+    padding: 2% 4% 2%;
+    margin-bottom: 4%;
+    font-weight: 900;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+
+
+  }
+
+
+@media only screen and (max-width: 456px) {
+  .paragraf8E{
+
+    font-family: 'Lato', sans-serif;
+    color: rgb(59, 109, 74);
+    align-items:center;
+    justify-content: center;
+    text-align:center;
+    font-weight: 900;
+    font-size:large;
+    padding: 5%;
+  
+  }
+  .paragraf8-s{
+
+    font-family: 'Lato', sans-serif;
+    color: rgb(59, 109, 74);
+    align-items:center;
+    justify-content: center;
+    text-align:center;
+    font-weight: 400;
+    font-size:xx-small;
+    text-decoration: underline ;
+    padding-bottom: 2%;
+  
+  }
+  .card8{
+    margin-top: 6%;
+  border-radius: 2%;
+  width: 88%;
+  height: 120%;
+  margin-bottom: 6% ;
+  padding-bottom: 2%;
+
+  
+  
+  
+  }
+  .mybutton8{
+
+
+    background-color: #446b5b;
+    border-color:white;
+    color:white;
+    border-radius: 15px;
+    font-family: 'Lato', sans-serif;
+    max-width: 390px;
+    padding: 2% 4% 2%;
+    margin-bottom: 4%;
+    font-weight: 900;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+
+
+  }
+
+}
+
+
+
+

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Maven+Pro&display=swap');
+
+
+.form{
+ max-width: 60%;
+ margin-bottom: 5%;
+ 
+}
+
+
+.paragraf8{
+
+  font-family: 'Lato', sans-serif;
+  color: rgb(59, 109, 74);
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+  font-weight: 900;
+  font-size:xx-large;
+  padding: 5%;
+
+}
+.paragraf8-s{
+
+  font-family: 'Lato', sans-serif;
+  color: rgb(59, 109, 74);
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+  font-weight: 400;
+  font-size:xx-large;
+  text-decoration: underline ;
+  padding-bottom: 2%;
+
+}
+.card{
+  margin-top: 6%;
+border-radius: 2%;
+width: 50%;
+height: 150%;
+
+
+
+}
+
+.mybuttonFomr{
+
+
+    background-color: #5dc1b9;
+    border-color:white;
+    color:white;
+    border-radius: 15px;
+    font-family: 'Lato', sans-serif;
+    max-width: 390px;
+    padding: 1% 4% 1%;
+    margin-bottom: 4%;
+    font-weight: 900;
+
+
+
+
+  }
+
+
+@media only screen and (max-width: 356px) {
+  .image { 
+
+
+
+
+
+  }
+}
+
+
+
+
