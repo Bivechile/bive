@@ -35,7 +35,7 @@
     
   },
   "scripts": {
-    "start-server": "nodemon node back/server.js",
+    "start-server": "node back/server.js",
     "start-front": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
