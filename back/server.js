@@ -1,7 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
-const { shopifyConfig } = require("../config"); 
+const  shopifyConfig  = require("../config"); 
 
 const app = express();
 app.use(express.json());
@@ -25,9 +25,6 @@ app.get("/products", async (req, res) => {
     headers: {
       "Content-Type": "application/json",
       "X-Shopify-Access-Token": shopifyConfig.accessToken,
-      Authorization: `Basic ${Buffer.from(
-        `${shopifyConfig.apiKey}:${shopifyConfig.password}`
-      ).toString("base64")}`,
     },
   };
 
@@ -54,13 +51,30 @@ app.get("/products", async (req, res) => {
 
 app.post("/cart", async (req, res) => {
   const items = req.body.items;
+ // const shopifyStoreUrl = "berrots-life.myshopify.com"; // Reemplaza 'your-shop-name' con el nombre de tu tienda
   const storefrontAccessToken = shopifyConfig.storefrontAccessToken;
 
   const lineItems = items.map((item) => {
     return `{ variantId: "${item.variantId}", quantity: ${item.quantity} }`;
   });
 
-  const consulta = `mutación { checkoutCreate(input: { lineItems: [{ variantId: "gid://shopify/ProductVariant/47433046130985", quantity: 1 }] }) { checkout { id webUrl } checkoutUserErrors { code field message } } }`;
+  const consulta =  `
+  mutation {
+    checkoutCreate(input: {
+      lineItems: [${lineItems.join(',')}]
+    })  {
+      checkout {
+        id
+        webUrl
+      }
+      checkoutUserErrors {
+        code
+        field
+        message
+      }
+    }
+  }
+`;
 
   try {
     const response = await axios.post(
@@ -78,7 +92,7 @@ app.post("/cart", async (req, res) => {
     );
 
  
-      console.log("Data returned:\n", response.data);
+      //console.log("Data returned:\n", response.data);
       // console.log('error', response.data.data.checkoutCreate.checkoutUserErrors[0].field);
       // Si la creación del checkout fue exitosa, redirige al cliente a la URL de la tienda Shopify
       res.json({

@@ -17,7 +17,6 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-session": "^1.18.0",
-    "node-fetch": "^3.3.2",
     "react": "^18.2.0",
     "react-alert": "^7.0.3",
     "react-bootstrap": "^2.9.1",
@@ -32,7 +31,6 @@
     "shopify-buy": "^2.21.1",
     "shopify-node-api": "^1.11.1",
     "web-vitals": "^2.1.4"
-    
   },
   "scripts": {
     "start-server": "node back/server.js",
