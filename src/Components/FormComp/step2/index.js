@@ -2,68 +2,123 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./step2.css";
 import FadeIn from "react-fade-in";
 import { useEffect, useState } from "react";
-import { ArrowLeft } from "react-bootstrap-icons";
+import LogoBive from "../../../images/Bive-icono.png";
+import ProgressBar from "react-bootstrap/ProgressBar";
+
 
 const Step2 = ({ onButtonClick, onPreviousButtonClick }) => {
-  const [nombreComponente2, setNombreComponente2] = useState("");
+  // eslint-disable-next-line
+  const [primeraCatgoria, setprimeraCatgoria] = useState("");
 
   useEffect(() => {
-    localStorage.removeItem('nombre');
-
-  
-
-  }, [])
-  
+    localStorage.removeItem("primeraCategoria");
+  }, []);
 
   const handleButtonClick = (e) => {
+    const selectedCategory = e.target.value;
 
-    e.preventDefault(); // Evitar el envío del formulario por defecto
-    onButtonClick(nombreComponente2);
-    localStorage.nombre = nombreComponente2;
-  };
+    setprimeraCatgoria(selectedCategory);
+    // localStorage.setItem("primeraCategoria", selectedCategory);
   
+    localStorage.primeraCategoria = selectedCategory;
+    localStorage.setItem(
+      "primeraCategoriaCadena",
+      JSON.stringify(selectedCategory)
+    );
+    onButtonClick(selectedCategory);
+  };
 
   return (
     <div className="container">
-      <div className="row ">
+      <div className="row">
         <div className="col-12-lg mx-auto">
-          <form onSubmit={handleButtonClick}>
-            <FadeIn>
-              <div className="mb-3 mx-auto">
-                <label className="etiqueta1" htmlFor="formGroupExampleInput2">
-                  Hola soy BIVE ¿Cómo te llamas?
-                </label>
-<div className="centro">
+          <FadeIn>
+            <hr className="hr" />
+            <div className="d-flex justify-content-between align-items-center">
+              <div className="backarrow" onClick={onPreviousButtonClick}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-chevron-left"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+                  />
+                </svg>
+              </div>
+              <div className="title_bar text-center">
+                CREACIÓN DEL PERFIL
+                <ProgressBar variant="info" now={30} />
+              </div>
+              <div className="espacio"></div>{" "}
+            </div>
+            <hr className="hr_d" />
+
+            <img
+              className=" mt-4 mx-auto d-block mb-4"
+              src={LogoBive}
+              alt="Berrots"
+              width="70"
+              height="140"
+            />
+            <h1 className="titleS2 mx-auto">
+              PRIMERO QUE TODO ¿CUANDO BUSCAS ALIMENTOS, TIENES ALGUNA DE ESTAS
+              RESTRICCIONES O PREFERENCIAS?<br></br>
+            </h1>
+
+            <div className="radio-buttons-wrapper mx-auto">
+              <div className="radio-button-container">
                 <input
-                  type="text"
-                  className="form-control"
-                  id="nombre"
-                  placeholder="Escribe tu nombre"
-                  onChange={(e) => setNombreComponente2(e.target.value)}
-                  required
+                  type="radio"
+                  id="option1"
+                  value="keto"
+                  onChange={handleButtonClick}
                 />
-                </div>
+                <label htmlFor="option1" className="radio-label">
+                  Keto/ Lowcarb/ Dieta
+                </label>
               </div>
 
-              <div className="botones">
-                <div className="col-lg-6 col-sm-12">
-                  <button type="submit" className="mybuttonFormstep1">
-                    Aceptar
-                  </button>
-                </div>
-                <div className="col-lg-6 col-sm-12">
-                  <button
-                    type="button"
-                    className="mybuttonFormstep2 "
-                    onClick={onPreviousButtonClick}
-                    
-                  >
-                    <ArrowLeft />
-                  </button>
-                </div>
+              <div className="radio-button-container">
+                <input
+                  type="radio"
+                  id="option2"
+                  value="alergia"
+                  onChange={handleButtonClick}
+                />
+                <label htmlFor="option2" className="radio-label">
+                  Alergia/ Sensibilidad alimentaria
+                </label>
               </div>
-            </FadeIn>
-          </form>
+              <div className="radio-button-container">
+                <input
+                  type="radio"
+                  id="option3"
+                  value="saludable"
+                  onChange={handleButtonClick}
+                />
+                <label htmlFor="option3" className="radio-label">
+                  Alimentación Saludable (Sin "quimicos")
+                </label>
+              </div>
+
+              <div className="radio-button-container">
+                <input
+                  type="radio"
+                  id="option4"
+                  value="vegano"
+                  onChange={handleButtonClick}
+                />
+                <label htmlFor="option4" className="radio-label">
+                  Productos Veganos
+                </label>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </div>
     </div>

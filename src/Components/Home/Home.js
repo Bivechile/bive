@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "../Header/Header";
+import Headesb from "../Headersb/Headersb";
 import FirstComp from "../FirstComp/FirstComp";
 import Secondcomp from "../SecondComp/SecondComp";
 import ThirdComp from "../ThirdComp/ThirdComp";

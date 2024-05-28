@@ -1,0 +1,114 @@
+{
+    "categorias": [
+        {
+            "nombre": "Productos keto",
+            "tag": "keto",
+            "preguntas": [
+                {
+                    "nombre": "Productos keto",
+                    "tag": "low-carb"
+                },
+                {
+                    "nombre": "Poductos sin azucar",
+                    "tag": "sin-azucar"
+                },
+                {
+                    "nombre": "Alto en proteina",
+                    "tag": "proteico"
+                }
+            ]
+        },
+        {
+            "nombre": "Sensibilidad",
+            "tag": "alergia",
+            "preguntas": [
+                {
+                    "nombre": "Productos sin soya",
+                    "tag": "sin-soya"
+                },
+                {
+                    "nombre": "Productos sin leche",
+                    "tag": "sin-leche"
+                },
+                {
+                    "nombre": "Productos sin gluten",
+                    "tag": "sin-gluten"
+                },
+                {
+                    "nombre": "Productos sin gluten certificados",
+                    "tag": "sin-gluten-certificado"
+                },
+                {
+                    "nombre": "Productos sin frutos secos",
+                    "tag": "sin-frutos-secos"
+                },
+                {
+                    "nombre": "Productos sin nueces",
+                    "tag": "sin-nueces"
+                },
+                {
+                    "nombre": "Productos sin huevo",
+                    "tag": "sin-huevo"
+                },
+                {
+                    "nombre": "Productos sin azúcar (Ni fructosa, ni maltodextrina, etc)",
+                    "tag": "sin-azucar"
+                },
+                {
+                    "nombre": "Productos sin azúcar añadida",
+                    "tag": "sin-azucar-añadida"
+                },
+                {
+                    "nombre": "Productos sin fructosa",
+                    "tag": "sin-fructosa"
+                }]},
+                {
+                    "nombre": "quimicos",
+                    "tag": "saludable",
+                    "preguntas": [
+                        {
+                            "nombre": "Productos sin sellos",
+                            "tag": "sin-sellos"
+                        },
+                        {
+                            "nombre": "Productos raw",
+                            "tag": "raw"
+                        },
+                        {
+                            "nombre": "Productos orgánicos",
+                            "tag": "organico"
+                        },
+                        {
+                            "nombre": "Sin gmo",
+                            "tag": "sin-gmo"
+                        },
+                        {
+                            "nombre": "etiqueta limpia",
+                            "tag": "limpia"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "Productos veganos",
+                    "tag": "vegano",
+                    "preguntas": [
+                        {
+                            "nombre": "Keto/ lowcarb /dietas",
+                            "tag": "keto"
+                        },
+                        {
+                            "nombre": "Alergia/ sensibilidad alimentaria",
+                            "tag": "alergia"
+                        },
+                        {
+                            "nombre": "Alimentación saludable (sin químicos)",
+                            "tag": "saludable"
+                        },
+                        {
+                            "nombre": "Ninguna preferencia",
+                            "tag": "ninguna"
+                        }
+                    ]
+                }
+            ]
+        }

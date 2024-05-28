@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+.Header {
+  background-color:white;
+  text-align: center;
+  align-items: center;
+
+}
+
+.image {
+height: 87px;
+width: 180px;
+text-align: center;
+align-items: center;
+}
+
+.mybutton {
+  background-color: #E4E4DB;
+  border-color:white;
+  color:#191c20;
+  border-radius: 15px;
+  font-family: 'Lato', sans-serif;
+  margin: 8px;
+  min-width: 320px;
+
+
+}
+.botonera{
+  text-align: center;
+  align-items: center;
+  margin-bottom: 2%;
+
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.hr{
+
+  border: 2px solid LightSeaGreen;
+}
+

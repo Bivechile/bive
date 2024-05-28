@@ -1,150 +1,159 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Maven+Pro&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-.group {
-  margin-top: 1%;
-  color: green;
-  font-family: "Lato", sans-serif;
-  margin-left: 1%;
+.titleS2 {
+  font-family: "Raleway", sans-serif;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   font-weight: 400;
-  font-size: 24px;
-  margin-bottom: 2%;
-}
-.label{
-margin-right: 10%;
+  font-size: 19px;
+  letter-spacing: 0.10em;
+  line-height: 1.5em;
+  padding-bottom: 2%;
 }
 
-.checkboxeslinea {
-  border: 1px solid rgb(150, 148, 148); /* Ancho y color del borde */
-  border-radius: 5px; /* Bordes redondeados, ajusta según tus preferencias */
-  padding-bottom: 2%;
-  padding-left: 5%;
-  margin-bottom: 3%;
+.check-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.contenedor-checkboxes input[type="checkbox"] {
-  margin-right: 5px; /* Espaciado entre las cajas de verificación */
-  color: #446b5b;
+
+.check-button-container {
+  margin-bottom: 10px;
 }
-.mybuttonFormstep1 {
-  background-color: rgb(144, 216, 216);
-  color: rgb(41, 100, 41);
-  padding: 0.6%;
-  border-radius: 5px;
-  font-family: "Lato", sans-serif;
+
+.check-label {
+  color: black;
+  padding: 4% 8%;
+  border-radius: 35px;
+  font-family: "Raleway", sans-serif;
+  min-width: 450px;
+  width: 550px;
+  max-width: 550px;
+  border: 1px solid #d0d0d0;
+  font-weight: 400;
+  font-size: large;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.check-label::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid #d0d0d0;
+  background-color: white;
+  margin-right: 10px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + .check-label::before {
+  content: '';
+  width: 20px;
+  min-width:20px ;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid #d0d0d0;
+  background-color: white;
+  margin-right: 10px;
+}
+
+input[type="checkbox"]:checked + .check-label::before {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.imagen-derecha {
+  margin-left: auto;
+}
+
+
+.mybuttonFormstep2new {
+
+  background-color: #FB8458;
+  color:white;
+  padding-top: 0.9%;
+  padding-bottom: 0.9%;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-radius: 25px;
+  font-family: "Raleway", sans-serif;
   min-width: 120px;
   border: 1px solid #d0d0d0;
-  font-weight: 800;
+  font-weight: 400;
   margin-top: 5%;
   display: flex;
   justify-content: center;
   font-size: large;
-}
-.form-check-input.checked {
-  background-color: green !important;
-  color: rgb(41, 100, 41);
-  padding: 0.6%;
+  margin-bottom: 2%;
+  
+  
+  }
 
-  font-family: "Lato", sans-serif;
-}
-.etiqueta1 {
-  margin-bottom: 1%;
-  font-family: "Lato", sans-serif;
-  color: black;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-weight: 400;
-  font-size: 22px;
-  background-image: none;
-  margin-top: 2%;
-}
-
-.select4 {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  display: flex;
-  margin: auto;
-}
-.box-f3 {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  display: flex;
-  margin: auto;
-  font-size: small;
-}
-.mini {
-  margin-top: 1%;
-  margin-left: 0.5%;
-}
-.alladoboton {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: small;
-  margin-top: 6%;
-  margin-left: 2%;
-}
-.form-check-label {
-  font-family: "Lato", sans-serif;
-  color: gary;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-weight: 500;
-  font-size: 20px;
-  background-image: none;
-}
-.custom-checkbox {
-  /* Cambia el color de fondo del checkbox cuando está seleccionado */
-  background-color: green/* Reemplaza "your-color" con el color deseado */
-
-  /* Puedes personalizar otros estilos según tus necesidades */
-  /* border: ...; */
-  /* padding: ...; */
-  /* ... */
-}
-.paragraformsub {
-  font-family: "Lato", sans-serif;
-  color: black;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-weight: 400;
-  font-size: 20px;
-  background-image: none;
-  margin-top: 2%;
-}
-
-.bgf {
-  outline: none;
-  background-repeat: no-repeat;
-  height: auto;
-  background-position: center;
-  align-items: center;
-}
-.botonera {
-}
 @media only screen and (max-width: 450px) {
-  .mybuttonFirst {
-    margin-top: 37%;
-    margin-left: 40%;
-    background-color: #446b5b;
+  .titleS2 {
+    padding-bottom: 8%;
+  }
 
-    color: white;
-    padding: 0.1%;
-    border-radius: 15px;
-    font-family: "Lato", sans-serif;
-    min-width: 220px;
+  .check-label {
+    min-width: 300px;
+    width: 300px;
+    font-size: 13px;
   }
-  .checkboxeslinea {
-    border: 1px solid rgb(150, 148, 148); /* Ancho y color del borde */
-    border-radius: 5px; /* Bordes redondeados, ajusta según tus preferencias */
-    padding-bottom: 2%;
-  margin-left: -12px;
- 
-  }
-  .form-check .form-check-input {
-margin-left: 0%;
-  }
+  .mybuttonFormstep2new {
+    background-color: #FB8458;
+    color:white;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 15%;
+    padding-right: 15%;
+    border-radius: 35px;
+    font-family: "Raleway", sans-serif;
+    min-width: 120px;
+    border: 1px solid #d0d0d0;
+    font-weight: 400;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    font-size:large;
+    margin-bottom: 8%;
+    
+    
+    }
+    .imagen-derecha {
+      margin-left: auto;
+      width:35px ;
+      height:35px ;
+
+    }
+}
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + .check-label::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #d0d0d0;
+  background-color: white;
+  margin-right: 10px;
+}
+
+input[type="radio"]:checked + .check-label::before {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.imagen-derecha {
+  margin-left: auto;
 }

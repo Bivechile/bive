@@ -1,684 +1,125 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./step6.css";
 import FadeIn from "react-fade-in";
-import { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { ArrowLeft } from "react-bootstrap-icons";
+import React, { useEffect, useState } from "react";
+import LogoBive from "../../../images/Bive-icono.png";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 const Step6 = ({ onButtonClick, props, onPreviousButtonClick }) => {
-  const [contenido, setContenido] = useState([]);
-  const [habilitarBoton, setHabilitarBoton] = useState(false);
-  const prop=props || localStorage.getItem('tipoProducto');
+  const [step6, setStep6] = useState([]);
+  // eslint-disable-next-line
 
-  // Manejar el cambio de estado cuando se hace clic en un checkbox
-  const handleCheckboxChange = (value) => {
- 
-      setContenido([...contenido, value]);
-      setHabilitarBoton(true)
-    
-  };
+  // eslint-disable-next-line
   useEffect(() => {
-    localStorage.removeItem("contenido");
+    localStorage.removeItem("terceraPregunta");
 
-
-  
+    // eslint-disable-next-line
   }, []);
 
-  const handleSubmit = () => {
-    onButtonClick(contenido);
-    localStorage.setItem('contenido', JSON.stringify(contenido));
-    
+  const handleCheckboxChange = (value) => {
+    // Verificar si el valor ya está presente en primeraPregunta
+    const index = step6.indexOf(value);
+    if (index === -1) {
+      // Si no está presente, agregarlo
+      setStep6([...step6, value]);
+    } else {
+      // Si está presente, eliminarlo
+      const updatedStep6 = [...step6];
+      updatedStep6.splice(index, 1);
+      setStep6(updatedStep6);
+    }
+  };
 
+  const handleButtonClick = () => {
+    onButtonClick(step6);
+    localStorage.terceraPregunta = step6;
+    localStorage.setItem('terceraPreguntaCadena', JSON.stringify(step6));
   };
 
   return (
-    <Container>
-      <FadeIn>
-        <div>
-          <label className="etiqueta1" htmlFor="formGroupExampleInput2">
-       
-            ¿Seleccionar?
-          </label>
-          <div className="form-check">
-            {prop === "dietas" && (
-              <div className="checkboxeslinea">
-                <div className="group">Dietas especiales / Bajar de peso</div>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="low-carb"
-                        id="flexCheckDefault"
-                      //  checked={contenido.includes("low-carb")}
-                        onChange={() => handleCheckboxChange("low-carb")}
-                      />
-                      Productos Keto
-                    </label>
-                  </Col>
-                  <Col xs={12} lg={4}>
-                  <label className="form-check-label" htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-azucar-añadida"
-                        id="flexCheckDefault2"
-                     //   checked={contenido.includes("sin-azucar-añadida")}
-                        onChange={() =>
-                          handleCheckboxChange("sin-azucar-añadida")
-                        }
-                      />
-                    
-                      Productos sin azucar añadida
-                    </label>
-                  </Col>
+    <div className="container">
+      <div className="row">
+        <div className="col-12-lg mx-auto">
+          <FadeIn>
 
-                  <Col xs={12} lg={4}>
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="pasta-alta-en-proteina, batidos-proteicos, clado-de-hueso, barra-proteicas, carne-deshidratada, batidos-y-proteinas, otros-superalimentos"
-                        id="flexCheckDefault2"
-                     //   checked={contenido.includes(
-                       //   "pasta-alta-en-proteina, batidos-proteicos, clado-de-hueso, barra-proteicas, carne-deshidratada, batidos-y-proteinas, otros-superalimentos"
-                       // )}
-                        onChange={() =>
-                          handleCheckboxChange(
-                            "pasta-alta-en-proteina, batidos-proteicos, clado-de-hueso, barra-proteicas, carne-deshidratada, batidos-y-proteinas, otros-superalimentos"
-                          )
-                        }
-                      />
-                      Productos altos en proteinas
-                    </label>
-                  </Col>
-                </Row>
-              </div>
-            )}
-            {prop === "alergias" && (
-              <div className="checkboxeslinea">
-                <div className="group">Alergias / Sensibilidad alimentaria</div>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-soya"
-                        id="flexCheckDefault"
-                    //    checked={contenido.includes("sin-soya")}
-                        onChange={() => handleCheckboxChange("sin-soya")}
-                      />
-                      Productos sin soya
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-leche"
-                        id="flexCheckDefault2"
-                      //  checked={contenido.includes("sin-leche")}
-                        onChange={() => handleCheckboxChange("sin-leche")}
-                      />
-                      Productos sin leche
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-gluten"
-                        id="flexCheckDefault2"
-                     //   checked={contenido.includes("sin-gluten")}
-                        onChange={() => handleCheckboxChange("sin-gluten")}
-                      />
-                      Productos sin gluten
-                    </label>
-                  </Col>
-                </Row>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-gluten-certificados"
-                        id="flexCheckDefault2"
-                      //  checked={contenido.includes("sin-gluten-certificados")}
-                        onChange={() =>
-                          handleCheckboxChange("sin-gluten-certificados")
-                        }
-                      />
-                      Productos sin gluten certificados
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-frutos-secos"
-                        id="flexCheckDefault2"
-                      //  checked={contenido.includes("sin-frutos-secos")}
-                        onChange={() =>
-                          handleCheckboxChange("sin-frutos-secos")
-                        }
-                      />
-                      Productos sin frutos secos
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-nueces"
-                        id="flexCheckDefault2"
-                      //  checked={contenido.includes("sin-nueces")}
-                        onChange={() => handleCheckboxChange("sin-nueces")}
-                      />
-                      Productos sin nueces
-                    </label>
-                  </Col>
-                </Row>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-huevo"
-                        id="flexCheckDefault2"
-                    //    checked={contenido.includes("sin-huevo")}
-                        onChange={() => handleCheckboxChange("sin-huevo")}
-                      />
-                      Productos sin huevo
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-azucar"
-                        id="flexCheckDefault2"
-                      //  checked={contenido.includes("sin-azucar")}
-                        onChange={() => handleCheckboxChange("sin-azucar")}
-                      />
-                      Productos sin azucar
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}></Col>
-                </Row>
-              </div>
-            )}
-            {prop === "saludable" && (
-              <div className="checkboxeslinea">
-                <div className="group">Alimentación saludable</div>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="raw"
-                        id="flexCheckDefault"
-                      //  checked={contenido.includes("raw")}
-                        onChange={() => handleCheckboxChange("raw")}
-                      />
-                      Productos raw
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="organico"
-                        id="flexCheckDefault2"
-                   //     checked={contenido.includes("organico")}
-                        onChange={() => handleCheckboxChange("organico")}
-                      />
-                      Productos organicos
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-gmo"
-                        id="flexCheckDefault2"
-                    //    checked={contenido.includes("sin-gmo")}
-                        onChange={() => handleCheckboxChange("sin-gmo")}
-                      />
-                      Productos gmo
-                    </label>
-                  </Col>
-                </Row>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="limpia"
-                        id="flexCheckDefault2"
-                   //     checked={contenido.includes("limpia")}
-                        onChange={() => handleCheckboxChange("limpia")}
-                      />
-                      Etiqueta limpia
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}></Col>
-                    <Col xs={12} lg={4}></Col>
-                </Row>{" "}
-              </div>
-            )}
-            {prop === "Vegetarianos" && (
-              <div className="checkboxeslinea">
-                <div className="group">Productos veganos / Vegetarianos</div>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="vegano"
-                        id="flexCheckDefault"
-                   //     checked={contenido.includes("vegano")}
-                        onChange={() => handleCheckboxChange("vegano")}
-                      />
-                      Todos
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="raw"
-                        id="flexCheckDefault"
-                       // checked={contenido.includes("raw")}
-                        onChange={() => handleCheckboxChange("raw")}
-                      />
-                      Productos raw
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="organico"
-                        id="flexCheckDefault2"
-                     //   checked={contenido.includes("organico")}
-                        onChange={() => handleCheckboxChange("organico")}
-                      />
-                      Productos organicos
-                    </label>
-                  </Col>
-                </Row>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-gmo"
-                        id="flexCheckDefault2"
-                    //    checked={contenido.includes("sin-gmo")}
-                        onChange={() => handleCheckboxChange("sin-gmo")}
-                      />
-                      Productos gmo
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="limpia"
-                        id="flexCheckDefault2"
-                      //  checked={contenido.includes("limpia")}
-                        onChange={() => handleCheckboxChange("limpia")}
-                      />
-                      Etiqueta limpia
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-soya"
-                        id="flexCheckDefault"
-                    //    checked={contenido.includes("sin-soya")}
-                        onChange={() => handleCheckboxChange("sin-soya")}
-                      />
-                      Productos sin soya
-                    </label>
-                  </Col>
-                </Row>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-leche"
-                        id="flexCheckDefault2"
-                    //    checked={contenido.includes("sin-leche")}
-                        onChange={() => handleCheckboxChange("sin-leche")}
-                      />
-                      Productos sin leche
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-gluten"
-                        id="flexCheckDefault2"
-                     //   checked={contenido.includes("sin-gluten")}
-                        onChange={() => handleCheckboxChange("sin-gluten")}
-                      />
-                      Productos sin gluten
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-gluten-certificados"
-                        id="flexCheckDefault2"
-                    //    checked={contenido.includes("sin-gluten-certificados")}
-                        onChange={() =>
-                          handleCheckboxChange("sin-gluten-certificados")
-                        }
-                      />
-                      Productos sin gluten certificados
-                    </label>
-                  </Col>
-                </Row>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-frutos-secos"
-                        id="flexCheckDefault2"
-                  //      checked={contenido.includes("sin-frutos-secos")}
-                        onChange={() =>
-                          handleCheckboxChange("sin-frutos-secos")
-                        }
-                      />
-                      Productos sin frutos secos
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-nueces"
-                        id="flexCheckDefault2"
-                     //   checked={contenido.includes("sin-nueces")}
-                        onChange={() => handleCheckboxChange("sin-nueces")}
-                      />
-                      Productos sin nueces
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-huevo"
-                        id="flexCheckDefault2"
-                   //     checked={contenido.includes("sin-huevo")}
-                        onChange={() => handleCheckboxChange("sin-huevo")}
-                      />
-                      Productos sin huevo
-                    </label>
-                  </Col>
-                </Row>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-azucar"
-                        id="flexCheckDefault2"
-                    //    checked={contenido.includes("sin-azucar")}
-                        onChange={() => handleCheckboxChange("sin-azucar")}
-                      />
-                      Productos sin azucar
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="sin-azucar-añadida"
-                        id="flexCheckDefault2"
-                      //  checked={contenido.includes("sin-azucar-añadida")}
-                        onChange={() =>
-                          handleCheckboxChange("sin-azucar-añadida")
-                        }
-                      />
-                      Productos sin azucar añadida
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value="pasta-alta-en-proteina, batidos-proteicos, clado-de-hueso, barra-proteicas, carne-deshidratada, batidos-y-proteinas, otros-superalimentos"
-                      id="flexCheckDefault2"
-                  //    checked={contenido.includes(
-                   //     "pasta-alta-en-proteina, batidos-proteicos, clado-de-hueso, barra-proteicas, carne-deshidratada, batidos-y-proteinas, otros-superalimentos"
-                   //   )}
-                      onChange={() =>
-                        handleCheckboxChange(
-                          "pasta-alta-en-proteina, batidos-proteicos, clado-de-hueso, barra-proteicas, carne-deshidratada, batidos-y-proteinas, otros-superalimentos"
-                        )
-                      }
-                    />
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      Productos altos en proteinas
-                    </label>
-                  </Col>
-                </Row>
-              </div>
-            )}
-            {prop === "deportiva" && (
-              <div className="checkboxeslinea">
-                <div className="group">Alimentación deportiva</div>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="pasta-alta-en-proteina, batidos-proteicos, clado-de-hueso, barra-proteicas, carne-deshidratada, batidos-y-proteinas, otros-superalimentos"
-                        id="flexCheckDefault2"
-                     //   checked={contenido.includes(
-                      //    "pasta-alta-en-proteina, batidos-proteicos, clado-de-hueso, barra-proteicas, carne-deshidratada, batidos-y-proteinas, otros-superalimentos"
-                      //  )}
-                        onChange={() =>
-                          handleCheckboxChange(
-                            "pasta-alta-en-proteina, batidos-proteicos, clado-de-hueso, barra-proteicas, carne-deshidratada, batidos-y-proteinas, otros-superalimentos"
-                          )
-                        }
-                      />
-                      Productos altos en proteinas
-                    </label>
-                  </Col>
-                </Row>
-              </div>
-            )}
-            {prop === "Suplementos" && (
-              <div className="checkboxeslinea">
-                <div className="group">Suplementos alimenticios</div>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="pasta-alta-en-proteina, batidos-proteicos, clado-de-hueso, barra-proteicas, carne-deshidratada, batidos-y-proteinas, otros-superalimentos"
-                        id="flexCheckDefault2"
-                   //     checked={contenido.includes(
-                    //      "pasta-alta-en-proteina, batidos-proteicos, clado-de-hueso, barra-proteicas, carne-deshidratada, batidos-y-proteinas, otros-superalimentos"
-                    //    )}
-                        onChange={() =>
-                          handleCheckboxChange(
-                            "pasta-alta-en-proteina, batidos-proteicos, clado-de-hueso, barra-proteicas, carne-deshidratada, batidos-y-proteinas, otros-superalimentos"
-                          )
-                        }
-                      />
-                      Productos altos en proteinas
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="probioticos"
-                        id="flexCheckDefault"
-                     //   checked={contenido.includes("probioticos")}
-                        onChange={() => handleCheckboxChange("probioticos")}
-                      />
-                      Probioticos
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="minerales"
-                        id="flexCheckDefault2"
-                     //   checked={contenido.includes("minerales")}
-                        onChange={() => handleCheckboxChange("minerales")}
-                      />
-                      Minerales
-                    </label>
-                  </Col>
-                </Row>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label className="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        classNameName="form-check-input"
-                        type="checkbox"
-                        value="vitaminas"
-                        id="flexCheckDefault2"
-                      //  checked={contenido.includes("vitaminas")}
-                        onChange={() => handleCheckboxChange("vitaminas")}
-                      />
-                      Vitaminas
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label classNameName="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        classNameName="form-check-input"
-                        type="checkbox"
-                        value="antiestress"
-                        id="flexCheckDefault2"
-                     //   checked={contenido.includes("antiestress")}
-                        onChange={() => handleCheckboxChange("antiestress")}
-                      />
-                      Antiestress
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label classNameName="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        classNameName="form-check-input"
-                        type="checkbox"
-                        value="mejorar-dormir"
-                        id="flexCheckDefault2"
-                     //   checked={contenido.includes("mejorar-dormir")}
-                        onChange={() => handleCheckboxChange("mejorar-dormir")}
-                      />
-                      Mejorar dormir
-                    </label>
-                  </Col>
-                </Row>
-                <Row>
-                    <Col xs={12} lg={4}>
-                    <label classNameName="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        classNameName="form-check-input"
-                        type="checkbox"
-                        value="mejorar-inmunidad"
-                        id="flexCheckDefault2"
-                   //     checked={contenido.includes("mejorar-inmunidad")}
-                        onChange={() =>
-                          handleCheckboxChange("mejorar-inmunidad")
-                        }
-                      />
-                      Mejorar inmunidad
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}>
-                    <label classNameName="form-check-label"  htmlFor="flexCheckDefault">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value="mas-energia"
-                        id="flexCheckDefault2"
-                      //  checked={contenido.includes("mas-energia")}
-                        onChange={() => handleCheckboxChange("mas-energia")}
-                      />
-                      Mas energia
-                    </label>
-                  </Col>
-                    <Col xs={12} lg={4}></Col>
-                </Row>
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div className="botones">
-              <div className="col-lg-6 col-sm-12">
-                <button
-                  type="submit"
-                  className="mybuttonFormstep1"
-                  onClick={handleSubmit}
-                  disabled={!habilitarBoton}
+          <hr className="hr" />
+            <div className="d-flex justify-content-between align-items-center">
+              <div className="backarrow"  onClick={onPreviousButtonClick}>
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-chevron-left"
+                  viewBox="0 0 16 16"
                 >
-                  Aceptar
-                </button>
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+                  />
+                </svg>
               </div>
-              <div className="col-lg-6 col-sm-12">
-                <button
-                  type="button"
-                  className="mybuttonFormstep2 "
-                  onClick={onPreviousButtonClick}
-                >
-                  <ArrowLeft />
-                </button>
+              <div className="title_bar text-center">
+                CREACIÓN DEL PERFIL
+                <ProgressBar variant="info" now={70} />
               </div>
+              <div className="espacio"></div>{" "}
+          
             </div>
-      </FadeIn>
-    </Container>
+            <hr className="hr_d" />
+
+
+            <img
+              className=" mt-4 mx-auto d-block mb-4"
+              src={LogoBive}
+              alt="Berrots"
+              width="70"
+              height="140"
+            />
+            <h1 className="titleS2 mx-auto">
+              ¿NECESTIAS COMPRAR PARA ALGUIEN EN ESPECIAL? (opcional)<br></br>
+            </h1>
+            <div className="check-buttons-wrapper mx-auto">
+              <div className="check-button-container">
+           
+                  <input
+                    type="checkbox"
+                    id="1"
+                    value="infantil"
+                    onChange={() => handleCheckboxChange("infantil")}
+                  />
+                  <label htmlFor="option-1" className="check-label">
+                    Mi compra incluye niños
+                  </label>
+              
+                  </div>
+                  <div className="check-button-container">
+           
+                  <input
+                    type="checkbox"
+                    id="2"
+                    value="adulto"
+                    onChange={() => handleCheckboxChange("adulto")}
+                  />
+                  <label htmlFor="option-2" className="check-label">
+                    Mi compra incluye tercera edad
+                  </label>
+                
+                  </div>
+            </div>
+            <div className="box-f2">
+              <button
+                type="button"
+                className="mybuttonFormstep2new"
+                onClick={handleButtonClick}
+              >
+                Siguiente
+              </button>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </div>
   );
 };
 

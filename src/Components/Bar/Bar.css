@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+.title_bar{
+    font-family: "Raleway", sans-serif;
+    color:black;
+    text-align:center;
+    font-weight: 400;
+    font-size:x-large;
+    margin-bottom: 20px;
+  }
+  .hr{
+
+    border: 2px solid LightSeaGreen;
+    margin-top: 40px;
+
+  }

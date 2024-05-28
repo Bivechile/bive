@@ -1,106 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Maven+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Maven+Pro&display=swap");
 
-.titlebandeja{
-    font-family: 'Lato', sans-serif;
-    color: grey;
-    align-items:center;
-    justify-content: center;
-    text-align:center;
-    font-weight: 900;
-    font-size: 16px; 
-
-
+.titlebandeja {
+  font-family: "Lato", sans-serif;
+  color: grey;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 900;
+  font-size: 16px;
 }
-.sinproduct{
-margin-bottom: 60px;
-margin-top: 20px;
+.sinproduct {
+  margin-bottom: 60px;
+  margin-top: 20px;
 }
 @media only screen and (max-width: 400px) {
   /* Estilos para dispositivos móviles con ancho de pantalla máximo de 600px */
   .titlebandeja {
-      font-size: 14px; /* Ajusta el tamaño de la fuente para dispositivos móviles */
-      /* Otros ajustes que desees para versiones móviles */
+    font-size: 14px; /* Ajusta el tamaño de la fuente para dispositivos móviles */
+    /* Otros ajustes que desees para versiones móviles */
   }
 }
 .quantity-container {
-  
-    align-items: left;
-    margin-top: 5px; /* Ajusta según sea necesario */
-    margin-bottom: 20px;
-    
-    
+  align-items: left;
+  margin-top: 5px; /* Ajusta según sea necesario */
+  margin-bottom: 20px;
+}
 
-  }
-  
+.quantity-display {
+  border: 1px solid #ccc; /* Ajusta el color y el grosor del borde según tus preferencias */
+  padding: 5px;
+  border-radius: 5px; /* Ajusta la redondez de las esquinas según tus preferencias */
+  margin: 0 10px; /* Ajusta el margen según tus preferencias */
+}
+.price-label {
+  text-align: right; /* Alinea el texto a la derecha */
+  margin-bottom: 5px;
+}
 
-  .quantity-display {
-    border: 1px solid #ccc;  /* Ajusta el color y el grosor del borde según tus preferencias */
-    padding: 5px;
-    border-radius: 5px;  /* Ajusta la redondez de las esquinas según tus preferencias */
-    margin: 0 10px;  /* Ajusta el margen según tus preferencias */
-  
-    
+.delete-button {
+  margin-top: 5px; /* Ajusta según sea necesario */
+  cursor: pointer;
+}
+
+.paragraformsub-banedeja {
+  font-family: "Lato", sans-serif;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 400;
+  font-size: 26px;
+  background-image: none;
+  margin-bottom: 4%;
+}
+.quantity-container button {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  background-color: #257574; /* Color verde, puedes ajustar el valor según tus preferencias */
+  color: #fff; /* Color del texto en el botón (blanco) */
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+.quantity-container button:disabled {
+  background-color: #ccc; /* Color gris para el botón deshabilitado */
+  cursor: not-allowed;
+}
+.button_carro {
+  background-color: #257574;
+  color: white;
+  border-radius: 12px;
+  width: 25%;
+  padding: 5px;
+  margin: 2%;
+}
+.div_cart {
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 400px) {
+  .quantity-container {
+    flex-direction: column;
+    align-items: center;
   }
-  .price-label {
-    text-align: right; /* Alinea el texto a la derecha */
-    margin-bottom: 5px; 
-  }
-  
-  .delete-button {
-    margin-top: 5px; /* Ajusta según sea necesario */
-    cursor: pointer;
-    
-  }
- 
-  .paragraformsub-banedeja{
-    font-family: 'Lato', sans-serif;
-    color:black;
-    align-items:center;
-    justify-content: center;
-    text-align:center;
-    font-weight: 400;
-    font-size:26px;
-    background-image: none;
-    margin-bottom: 4%;
-  
-  }
+
   .quantity-container button {
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-    background-color: #257574; /* Color verde, puedes ajustar el valor según tus preferencias */
-    color: #fff; /* Color del texto en el botón (blanco) */
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 4px;
+    margin: 5px 0;
+    padding: 2px 6px;
   }
-  
-  .quantity-container button:disabled {
-    background-color: #ccc; /* Color gris para el botón deshabilitado */
-    cursor: not-allowed;
-  }
-  .button_carro{
+  .button_carro {
     background-color: #257574;
     color: white;
     border-radius: 12px;
-    width: 25%;
-    padding: 5px;
+    width: 55%;
+    padding: 1%;
     margin: 2%;
-
   }
-  .div_cart{
-    justify-content:center;
-    align-items: center;
-  }
-  @media only screen and (max-width: 400px) {
-    .quantity-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .quantity-container button {
-      margin: 5px 0;
-      padding: 2px 6px;
-
-    }
-  }
+}

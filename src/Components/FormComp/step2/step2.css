@@ -1,175 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Maven+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-.botones{
-margin-bottom: 8%;
-margin-top: 5%;
-margin-left: 2%;
-}
-input[type="text"] {
-  border: 0;
-  border-bottom: 1px solid gray;
-  outline: 0;
-  max-width: 50%;
-
-
-
-}
-
-.mybuttonFormstep1 {
-
-background-color: rgb(144, 216, 216);;
-color:rgb(41, 100, 41);
-padding: 0.6%;
-border-radius: 5px;
-font-family: 'Lato', sans-serif;
-min-width: 120px;
-border: 1px solid #d0d0d0;
-font-weight: 800;
-margin-top: 5%;
-display: flex;
-justify-content: center;
-font-size: large;
-
-
-}
-.etiqueta1{
-
-  margin-bottom: 1%;
-  font-family: 'Lato', sans-serif;
+.titleS2{
+  font-family: "Raleway", sans-serif;
   color:black;
   align-items:center;
   justify-content: center;
   text-align:center;
   font-weight: 400;
-  font-size:22px;
-  background-image: none;
-  margin-top: 2%;
-padding-bottom: 2%;
-  
-}
-.mybuttonFormstep2{
-
-  background-color: rgb(200, 243, 229);
-color:rgb(41, 100, 41);
-padding: 0.9%;
-border-radius: 50px;
-font-family: 'Lato', sans-serif;
-min-width: 120px;
-border: 1px solid #d0d0d0;
-font-weight: 800;
-margin-top: 5%;
-display: flex;
-justify-content: center;
-font-size: large;
-
+  font-size:19px;
+  letter-spacing: 0.10em;
+  line-height:1.5em;
+  padding-bottom: 2%;
 
 }
-
-.box-f2 {
-  margin: auto;
-  font-size: small;
-  margin-left: 8%;
-  margin-top: 8%;
-
-}
-.centro {
+.radio-buttons-container {
+  display: flex;
   justify-content: center;
+}
+
+.radio-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  text-align: center;
-  display:flex;
-
-
+  max-width: 250px; /* Anchura máxima de los radio buttons */
 }
 
-.box-f3 {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  display:flex;
-  margin: auto;
-  font-size: small;
+.radio-button-container {
+  margin-bottom: 10px;
+}
 
-}
-.mini{
-  margin-top: 1%;
-  margin-left: 0.5%;
-}
-.alladoboton{
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: small;
-  margin-top: 6%;
-  margin-left: 2%;
-}
-.paragraform{
-  font-family: 'Lato', sans-serif;
-  color:black;
-  align-items:center;
-  justify-content: center;
-  text-align:center;
+.radio-label {
+  background-color: #FB8458;
+  color: white;
+  padding: 4% 8%;
+  border-radius: 35px;
+  font-family: "Raleway", sans-serif;
+  min-width: 450px;
+
+  border: 1px solid #d0d0d0;
   font-weight: 400;
-  font-size:xx-large;
-  background-image: none;
-
-}
-.paragraformsub{
-  font-family: 'Lato', sans-serif;
-  color:black;
-  align-items:center;
+  font-size: large;
+  cursor: pointer;
+  display: flex;
   justify-content: center;
-  text-align:center;
-  font-weight: 400;
-  font-size:20px;
-  background-image: none;
-  margin-top: 2%;
-
-}
-
-
-.bgf {
-
-  outline: none;
-  background-repeat: no-repeat;
-  height: auto;
-  background-position: center;
   align-items: center;
-
-
-  
-
+  position: relative;
 }
-.botonera{
 
+.radio-label::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 0.5px solid #FB8458;
+  background-color: white;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.backarrow{
+  margin-right: 1px;
+  cursor: pointer;
+}
+.backarrow svg {
+  width: 24px; /* Ancho deseado */
+  height: 24px; /* Alto deseado */
+}
 
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + .radio-label::before {
+  background-color: lightgray; /* Color del círculo */
+  border: 2px solid #FFF; /* Borde blanco alrededor del círculo */
 }
 @media only screen and (max-width: 450px) {
-  .mybuttonFirst {
-    margin-top: 37%;
-    margin-left: 40%;
-    background-color: #446b5b;
-    
-    color:white;
-    padding: 0.1%;
-    border-radius: 15px;
-    font-family: 'Lato', sans-serif;
-    min-width: 220px;
-    
-    
-    }
-    .bg {
+  .titleS2{
+    padding-bottom: 8%;
 
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position:120%;
-      background-attachment: local;
-   
-      max-width:450px;
+  }
+  .radio-label {
 
-    }
-    
+    min-width: 320px;}
+    .radio-label {
+      font-size: 13px;}
+      .backarrow svg {
+        width: 20px; /* Ancho deseado */
+        height: 20px; /* Alto deseado */
+      }
+
 }
-
-
-
-

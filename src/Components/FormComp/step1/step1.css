@@ -1,20 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Maven+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+.mybuttonFormstep1new {
 
-.mybuttonFormstep1 {
-
-background-color: rgb(144, 216, 216);;
-color:rgb(41, 100, 41);
-padding: 0.6%;
-border-radius: 5px;
-font-family: 'Lato', sans-serif;
+background-color: #FB8458;
+color:white;
+padding-top: 0.9%;
+padding-bottom: 0.9%;
+padding-left: 3%;
+padding-right: 3%;
+border-radius: 25px;
+font-family: "Raleway", sans-serif;
 min-width: 120px;
 border: 1px solid #d0d0d0;
-font-weight: 800;
+font-weight: 400;
 margin-top: 5%;
 display: flex;
 justify-content: center;
 font-size: large;
+margin-bottom: 2%;
 
 
 }
@@ -49,14 +52,29 @@ font-size: large;
   margin-top: 6%;
   margin-left: 2%;
 }
-.paragraform{
-  font-family: 'Lato', sans-serif;
+.new_title{
+  font-family: "Raleway", sans-serif;
   color:black;
   align-items:center;
   justify-content: center;
   text-align:center;
   font-weight: 400;
-  font-size:xx-large;
+  font-size:x-large;
+  letter-spacing: 0.10em;
+  line-height:1.5em;
+
+
+
+}
+.new_title_2{
+  font-family: "Raleway", sans-serif;
+  color:black;
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+  font-weight: 400;
+  font-size:large;
+  letter-spacing: 0.10em;
 
 
 
@@ -73,24 +91,59 @@ font-size: large;
   margin-top: 2%;
 
 }
+.condiciones{
+  font-family:  "Raleway", sans-serif;
+  color:black;
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+  font-weight: 400;
+  font-size:medium;
+  margin-bottom: 8%;
 
-
-
-.botonera{
 
 
 }
+.title_bar{
+  font-family: "Raleway", sans-serif;
+  color:black;
+  text-align:center;
+  font-weight: 400;
+  font-size:x-large;
+ 
+}
+.hr{
+
+  border: 2px solid LightSeaGreen;
+  margin-top: 40px;
+
+}
+.hr_d{
+
+  border: 2px solid LightSeaGreen;
+  margin-top: 20px;
+
+}
+
+
 @media only screen and (max-width: 450px) {
-  .mybuttonFirst {
-    margin-top: 37%;
-    margin-left: 40%;
-    background-color: #446b5b;
-    
+  .mybuttonFormstep1new {
+    background-color: #FB8458;
     color:white;
-    padding: 0.1%;
-    border-radius: 15px;
-    font-family: 'Lato', sans-serif;
-    min-width: 220px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    padding-left: 15%;
+    padding-right: 15%;
+    border-radius: 35px;
+    font-family: "Raleway", sans-serif;
+    min-width: 120px;
+    border: 1px solid #d0d0d0;
+    font-weight: 400;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    font-size:x-large;
+    margin-bottom: 8%;
     
     
     }
@@ -104,7 +157,29 @@ font-size: large;
       max-width:450px;
 
     }
+    .new_title{
+      font-family: "Raleway", sans-serif;
+      color:black;
+      align-items:center;
+      justify-content: center;
+      text-align:center;
+      font-weight: 400;
+      font-size:20px;
     
+    }
+    .new_title_2{
+      font-family: "Raleway", sans-serif;
+      color:black;
+      align-items:center;
+      justify-content: center;
+      text-align:center;
+      font-weight: 400;
+      font-size:large;
+      letter-spacing: 0.10em;
+      margin-bottom: 3%;
+  
+    
+    }
 }
 
 

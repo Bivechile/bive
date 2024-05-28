@@ -19,34 +19,92 @@ app.get("/", (req, res) => {
 });
 
 app.get("/products", async (req, res) => {
-  const apiUrl = `https://${shopifyConfig.shopName}/admin/api/${shopifyConfig.apiVersion}/products.json?since_id=0`;
 
-  const axiosConfig = {
-    headers: {
-      "Content-Type": "application/json",
-      "X-Shopify-Access-Token": shopifyConfig.accessToken,
-    },
+
+  const fetchProducts = async (pageInfo = null) => {
+    const url = `https://${shopifyConfig.shopName}/admin/api/${shopifyConfig.apiVersion}/products.json`;
+    const params = pageInfo ? { page_info: pageInfo, limit: 250 } : { limit: 250 };
+    const headers = {
+      'Content-Type': 'application/json',
+      'X-Shopify-Access-Token': shopifyConfig.accessToken,
+    };
+  
+    try {
+      const response = await axios.get(url, { params, headers });
+      return response;
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      throw error;
+    }
   };
 
-  try {
-    const response = await axios.get(apiUrl, axiosConfig);
-    const allProducts = response.data.products;
-   // console.log('todos los productos', allProducts);
-
-    // Filtrar productos activos con inventory_quantity mayor a 1
-    const filteredProducts = allProducts.filter((product) => {
+  const getAllProducts = async () => {
+    let allProducts = [];
+    let pageInfo = null;
+    let hasNextPage = true;
+  
+    while (hasNextPage) {
+      const response = await fetchProducts(pageInfo);
+      const products = response.data.products;
+      allProducts = allProducts.concat(products);
+  
+      const linkHeader = response.headers['link'];
+      if (linkHeader) {
+        const match = linkHeader.match(/<([^>]+)>;\s*rel="next"/);
+        pageInfo = match ? new URL(match[1]).searchParams.get('page_info') : null;
+        hasNextPage = !!pageInfo;
+      } else {
+        hasNextPage = false;
+      }
+    }
+  
+    return allProducts;
+  };
+  
+  getAllProducts()
+    .then(products => {
+    //  console.log(`Total products fetched: ${products.length}`);
+     // console.log(products);
+         // Filtrar productos activos con inventory_quantity mayor a 1
+    const filteredProducts = products.filter((product) => {
       return (
         product.status === "active" &&
         product.variants[0].inventory_quantity > 0
       );
     });
   //  console.log('productos filtrados', filteredProducts);
+      res.json(filteredProducts);
+    })
+    .catch(error => {
+      console.error('Failed to fetch all products:', error);
+    });
+  // const apiUrl = `https://${shopifyConfig.shopName}/admin/api/${shopifyConfig.apiVersion}/products.json`;
+  // const axiosConfig = {
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     "X-Shopify-Access-Token": shopifyConfig.accessToken,
+  //   },
+  // };
 
-    res.json(filteredProducts);
-  } catch (error) {
-    console.error("Error:", error.message);
-    res.status(500).send({ error: "Internal Server Error" });
-  }
+  // try {
+  //   const response = await axios.get(apiUrl, axiosConfig);
+  //   const allProducts = response.data.products;
+  //  // console.log('todos los productos', allProducts);
+
+  //   // Filtrar productos activos con inventory_quantity mayor a 1
+  //   const filteredProducts = allProducts.filter((product) => {
+  //     return (
+  //       product.status === "active" &&
+  //       product.variants[0].inventory_quantity > 0
+  //     );
+  //   });
+  // //  console.log('productos filtrados', filteredProducts);
+
+  //   res.json(filteredProducts);
+  // } catch (error) {
+  //   console.error("Error:", error.message);
+  //   res.status(500).send({ error: "Internal Server Error" });
+  // }
 });
 
 app.post("/cart", async (req, res) => {

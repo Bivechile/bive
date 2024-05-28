@@ -4,6 +4,7 @@ import "./bandeja.css";
 
 const Bandeja = ({ onButtonClick, props, onPreviousButtonClick }) => {
   const tag_encontrado = props;
+  console.log('tag', props);
 
   const [loading, setLoading] = useState(true);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -15,7 +16,7 @@ const Bandeja = ({ onButtonClick, props, onPreviousButtonClick }) => {
     return quantity * parseFloat(product.variants[0].price);
   };
 
-// eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const fetchData = async () => {
       const apiUrl = "http://localhost:4000/products";
@@ -24,11 +25,26 @@ const Bandeja = ({ onButtonClick, props, onPreviousButtonClick }) => {
         const response = await fetch(apiUrl);
         const data = await response.json();
 
-        const filteredProducts = data.filter((product) => {
+        const calculateTagScore = (productTags, tags) => {
+          let score = 0;
+          tags.forEach((tag) => {
+            if (productTags.includes(tag)) {
+              score += 1;
+            }
+          });
+          return score;
+        };
+
+        const productsWithScores = data.map((product) => {
           const productTags = product.tags.split(",").map((tag) => tag.trim());
-          
-          return tag_encontrado.some((tag) => productTags.includes(tag));
+          const score = calculateTagScore(productTags, tag_encontrado);
+          return { ...product, score };
         });
+
+        const filteredProducts = productsWithScores
+          .filter((product) => product.score > 0)
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 15);
 
         const initialQuantities = {};
         filteredProducts.forEach((product) => {
@@ -45,6 +61,7 @@ const Bandeja = ({ onButtonClick, props, onPreviousButtonClick }) => {
     };
 
     fetchData();
+    // eslint-disable-next-line 
   }, []);
 
   const decreaseQuantity = (id) => {
@@ -98,30 +115,28 @@ const Bandeja = ({ onButtonClick, props, onPreviousButtonClick }) => {
         nuevaVentana.location.href = data.redirectUrl;
       }
       // window.location.href = `https://berrots-life.myshopify.com/cart`;
-
-
     } catch (error) {
       console.error("Error al llamar a la API:", error.message);
-
     }
   };
-
-
-
 
   if (loading) {
     return (
       <Container>
         <Row className="justify-content-md-center">
           <Col xs lg="12" className="text-center">
-            <Button className="spinner" disabled style={{ backgroundColor: "green"}}>
+            <Button
+              className="spinner"
+              disabled
+              style={{ backgroundColor: "green" }}
+            >
               <Spinner
                 as="span"
                 animation="grow"
                 size="sm"
                 role="status"
                 aria-hidden="true"
-                style={{ color: "white"}}
+                style={{ color: "white" }}
               />
               Cargando...
             </Button>
@@ -134,83 +149,94 @@ const Bandeja = ({ onButtonClick, props, onPreviousButtonClick }) => {
   return (
     <Container>
       <Row className="justify-content-md-center">
-      <Col
-    xs
-    lg="12"
-    className="d-flex justify-content-center paragraformsub-banedeja "
-  >
-    <div className="titlebandeja">
-    Según tus preferencias, estos son tus  &nbsp; <span style={{  color: 'green'  }}> PRODUCTOS</span>
-    </div>
-  </Col>
-  {filteredProducts.length > 0 ? (
-        filteredProducts.map((producto) => (
-          <React.Fragment key={producto.id}>
-            <Row className="justify-content-md-center">
-              <Col
-                xs
-                lg="2"
-                className="d-flex justify-content-center align-items-center"
-              >
-                <img
-                  src={producto.image.src}
-                  alt={producto.title}
-                  style={{ height: 70, width: 70 }}
-                />
-              </Col>
-              <Col xs lg="5" className="d-flex flex-column align-items-start">
-                <p className="titlebandeja">{producto.title}</p>
-                <div className="quantity-container">
-                  <button
-                    onClick={() => decreaseQuantity(producto.id)}
-                    disabled={quantities[producto.id] === 1}
-                  >
-                    -
-                  </button>
-                  <span className="quantity-display">
-                    {quantities[producto.id]}
-                  </span>
-                  <button onClick={() => increaseQuantity(producto.id)}>
-                    +
-                  </button>
-                </div>
-              </Col>
-              <Col className="text-end">
-                <p className="price-label">
-                  {`$ ${calculateTotalPrice(producto.id).toLocaleString(
-                    "es-CL",
-                    {
-                      minimumFractionDigits: 0,
-                      maximumFractionDigits: 2,
-                    }
-                  )}`}
-                </p>
-
-                <a
-                  className="delete-button"
-                  onClick={() => handleDelete(producto.id)}
+        <Col
+          xs
+          lg="12"
+          className="d-flex justify-content-center paragraformsub-banedeja "
+        >
+          <div className="titlebandeja">
+            Según tus preferencias, estos son tus &nbsp;{" "}
+            <span style={{ color: "green" }}> PRODUCTOS</span>
+          </div>
+        </Col>
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((producto) => (
+            <React.Fragment key={producto.id}>
+              <Row className="justify-content-md-center">
+                <Col
+                  xs
+                  lg="2"
+                  className="d-flex justify-content-center align-items-center"
                 >
-                  Eliminar
-                </a>
-              </Col>
-            </Row>
+                  <img
+                    src={producto.image.src}
+                    alt={producto.title}
+                    style={{ height: 70, width: 70 }}
+                  />
+                </Col>
+                <Col xs lg="5" className="d-flex flex-column align-items-start">
+                  <p className="titlebandeja">{producto.title}</p>
+                  <div className="quantity-container">
+                    <button
+                      onClick={() => decreaseQuantity(producto.id)}
+                      disabled={quantities[producto.id] === 1}
+                    >
+                      -
+                    </button>
+                    <span className="quantity-display">
+                      {quantities[producto.id]}
+                    </span>
+                    <button onClick={() => increaseQuantity(producto.id)}>
+                      +
+                    </button>
+                  </div>
+                </Col>
+                <Col className="text-end">
+                  <p className="price-label">
+                    {`$ ${calculateTotalPrice(producto.id).toLocaleString(
+                      "es-CL",
+                      {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 2,
+                      }
+                    )}`}
+                  </p>
 
-            <hr className="hr" />
-          </React.Fragment>
-        ))) : (
+                  <a
+                    className="delete-button"
+                    onClick={() => handleDelete(producto.id)}
+                    href="/#"
+                  >
+                    Eliminar
+                  </a>
+                </Col>
+              </Row>
+
+              <hr className="hr" />
+            </React.Fragment>
+          ))
+        ) : (
           <div style={{ textAlign: "center" }}>
-            <p className="sinproduct">Al parecer no tenemos productos que cumplan con tus exigencias, por favor disculpa.</p>
-          
+            <p className="sinproduct">
+              Al parecer no tenemos productos que cumplan con tus exigencias,
+              por favor disculpa.
+            </p>
           </div>
         )}
 
-{filteredProducts.length > 0 && (
-  <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-    <button className="button_carro" onClick={() => sendCart()}>
-      Vamos a llenar el carrito
-    </button>
-  </div>
-)}
+        {filteredProducts.length > 0 && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <button className="button_carro" onClick={() => sendCart()}>
+              Vamos a llenar el carrito
+            </button>
+          </div>
+        )}
       </Row>
     </Container>
   );

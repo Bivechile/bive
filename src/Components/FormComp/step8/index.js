@@ -1,282 +1,144 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./step8.css";
-import data from "./data2.json";
+
 import FadeIn from "react-fade-in";
-import { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { ArrowLeft } from "react-bootstrap-icons";
+
+import LogoBive from "../../../images/Bive-icono.png";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 const Step8 = ({ onButtonClick, props, onPreviousButtonClick }) => {
 
 
 
-  const [categoriasub, setCategoriaSub] = useState([]);
-  const [categoriasubintole, setCategoriaSubintole] = useState([]);
-  const [despensa, setdespensa] = useState("");
-  const [colaciones, setcolaciones] = useState("");
-  const [suplementos, setSuplementos] = useState("");
-  const [intolerancias, setIntolerancias] = useState("");
-  const [habilitarBoton, setHabilitarBoton] = useState(false);
-
-  useEffect(() => {
-    localStorage.removeItem('categoriasub');
-    localStorage.removeItem('categoriasubcadena');
-
-  
-
-  }, [])
-
-  
-  const handleCheckboxChangeinmtole = (value) => {
-    setCategoriaSubintole([...categoriasubintole, value]);
-    setHabilitarBoton(true);
-  };
-
-
-  // Manejar el cambio de estado cuando se hace clic en un checkbox
-  const handleCheckboxChange = (value) => {
-    setCategoriaSub([...categoriasub, value]);
-    setHabilitarBoton(true);
-  };
-
-
-
   const handleButtonClick = () => {
-    const categoriaunida=`${categoriasub}${categoriasubintole}`;
-    const arregloTotal = categoriasub.concat(categoriasubintole);
-    
-    console.log('categotis unids',arregloTotal )
-    onButtonClick(arregloTotal);
-    localStorage.setItem('categoriasubcadenaintolesolo', JSON.stringify(categoriasubintole))
 
-    localStorage.categoriasub = categoriasub;
+    const primeraCategoria = localStorage.getItem('primeraCategoria');
+    const primerasPreguntasCadena = localStorage.getItem('primerasPreguntasCadena');
+    const segundaPreguntasCadena = localStorage.getItem('segundaPreguntasCadena');
+    const categoriasCadena = localStorage.getItem('categoriasCadena');
+    const terceraPreguntaCadena = localStorage.getItem('terceraPreguntaCadena');
+    // eslint-disable-next-line
+    const datosPersonales = localStorage.getItem('datosPersonales');
+
+ // Función para asegurarse de que el valor es un array
+ const parseArray = (value) => {
+  try {
+    const parsedValue = JSON.parse(value);
+ 
+    if (Array.isArray(parsedValue)) {
+      return parsedValue;
+    }
+    return [];
+  } catch (error) {
+    console.error('Error al parsear el valor:', error);
+    return [];
+  }
+};
+
+// Parsear los valores obtenidos del localStorage a arrays
+const itemPrimeraCategoria = [primeraCategoria];
+console.log('categoria',itemPrimeraCategoria )
+const itemPrimerasPreguntasCadena = parseArray(primerasPreguntasCadena);
+const itemSegundaPreguntasCadena = parseArray(segundaPreguntasCadena);
+const itemCategoriasCadena = parseArray(categoriasCadena);
+const itemTerceraPreguntaCadena = parseArray(terceraPreguntaCadena);
+
+const primeraCadenaIngredientes = [
+  ...itemPrimeraCategoria,
+  ...itemPrimerasPreguntasCadena,
+  ...itemSegundaPreguntasCadena,
+].map(item => `${item.trim()}`);
+
+localStorage.setItem("primeraCadenaIngredientes", JSON.stringify(primeraCadenaIngredientes));
+
+const todosLosIngredientes = [
+  ...itemPrimeraCategoria,
+  ...itemPrimerasPreguntasCadena,
+  ...itemSegundaPreguntasCadena,
+  ...itemCategoriasCadena,
+  ...itemTerceraPreguntaCadena,
+].map(item => `${item.trim()}`);
 
 
+
+    console.log('ingredientes', todosLosIngredientes);
+
+    onButtonClick(todosLosIngredientes);
+ 
   };
-  const buscarPalabra = () => {
-    const indice = props.indexOf("despensa");
-    if (indice !== -1) {
-      setdespensa("despensa");
-    }
-    const indice2 = props.indexOf("colaciones");
-    if (indice2 !== -1) {
-      setcolaciones("colaciones");
-    }
-    const indice3 = props.indexOf("suplementos");
-    if (indice3 !== -1) {
-      setSuplementos("suplementos");
-    }
-    const indice4 = props.indexOf("intolerancias");
-    if (indice4 !== -1) {
-      setIntolerancias("intolerancias");
-    }
-  };
-
-  useEffect(() => {
-    // Llamar a la función buscarPalabra después de cada renderizado
-    buscarPalabra();
-    localStorage.removeItem("paso10")
-  }, []);
 
   return (
-    <Container>
-      <FadeIn>
-        <div className="mb-3">
-          <label className="etiqueta1" htmlFor="formGroupExampleInput2">
-            ¿Que subcategoria te gustaria ver?
-          </label>
-          <div className="form-check">
-            {despensa && (
-              <div className="checkboxeslinea">
-                <>
-                  <Row>
-                    {data.categorias.map(
-                      (categoria) =>
-                        categoria.tag === "despensa" && (
-                          <>
-                            <div key={`div-${categoria.nombre}`} className="group">
-                              {categoria.nombre}
-                            </div>
+    <div className="container">
+      <div className="row">
+        <div className="col-12-lg mx-auto">
+          <FadeIn>
 
-                            {categoria.subcategorias.map((subcategoria) => (
-                                   <Col key={subcategoria.nombre} xs={12} lg={4}>
-                                <label
-                                  className="form-check-label"
-                                 htmlFor="flexCheckDefault"
-                                >
-                                  <input
-                                    type="checkbox"
-                                    id="chekbox1"
-                                    value={subcategoria.nombre}
-                                    className="form-check-input"
-                                    // checked={categoria.includes("despensa")}
-                                    onChange={() =>
-                                      handleCheckboxChange(subcategoria.tag)
-                                    }
-                                  />
-
-                                  {subcategoria.nombre}
-                                </label>
-                              </Col>
-                            ))}
-                          </>
-                        )
-                    )}
-                  </Row>
-                </>
-              </div>
-            )}
-
-            {colaciones && (
-              <div className="checkboxeslinea">
-                <>
-                  <Row>
-                    {data.categorias.map(
-                      (categoria) =>
-                        categoria.tag === "colaciones" && (
-                          <>
-                            <div key={categoria.tag} className="group">
-                              {categoria.nombre}
-                            </div>
-
-                            {categoria.subcategorias.map((subcategoria) => (
-                                   <Col key={subcategoria.nombre} xs={12} lg={4}>
-                                <label
-                                  className="form-check-label"
-                                 htmlFor="flexCheckDefault"
-                                >
-                                  <input
-                                    type="checkbox"
-                                    id={subcategoria.tag}
-                                    value={subcategoria.nombre}
-                                    className="form-check-input"
-                                    // checked={categoria.includes("despensa")}
-                                    onChange={() =>
-                                      handleCheckboxChange(subcategoria.tag)
-                                    }
-                                  />
-
-                                  {subcategoria.nombre}
-                                </label>
-                              </Col>
-                            ))}
-                          </>
-                        )
-                    )}
-                  </Row>
-                </>
-              </div>
-            )}
-
-            {suplementos && (
-              <div className="checkboxeslinea">
-               <>
-                  <Row>
-                    {data.categorias.map(
-                      (categoria) =>
-                        categoria.tag === "suplementos" && (
-                          <>
-                            <div key={categoria.tag} className="group">
-                              {categoria.nombre}
-                            </div>
-
-                            {categoria.subcategorias.map((subcategoria) => (
-                                   <Col key={subcategoria.nombre} xs={12} lg={4}>
-                                <label
-                                  className="form-check-label"
-                                 htmlFor="flexCheckDefault"
-                                >
-                                  <input
-                                    type="checkbox"
-                                    id={subcategoria.tag}
-                                    value={subcategoria.nombre}
-                                    className="form-check-input"
-                                    // checked={categoria.includes("despensa")}
-                                    onChange={() =>
-                                      handleCheckboxChange(subcategoria.tag)
-                                    }
-                                  />
-
-                                  {subcategoria.nombre}
-                                </label>
-                              </Col>
-                            ))}
-                          </>
-                        )
-                    )}
-                  </Row>
-                </>                
-              </div>
-            )}
-
-            {intolerancias && (
-              <div className="checkboxeslinea">
-                 <>
-                  <Row>
-                    {data.categorias.map(
-                      (categoria) =>
-                        categoria.tag === "intolerancias" && (
-                          <>
-                            <div key={categoria.nombre} className="group">
-                              {categoria.nombre}
-                            </div>
-
-                            {categoria.subcategorias.map((subcategoria) => (
-                                   <Col key={subcategoria.nombre} xs={12} lg={4}>
-                                <label
-                                  className="form-check-label"
-                                 for="flexCheckDefault"
-                                >
-                                  <input
-                                    type="checkbox"
-                                    id="chekbox1"
-                                    value={subcategoria.nombre}
-                                    className="form-check-input"
-                                    // checked={categoria.includes("despensa")}
-                                    onChange={() =>
-                                      handleCheckboxChangeinmtole(subcategoria.tag)
-                                    }
-                                  />
-
-                                  {subcategoria.nombre}
-                                </label>
-                              </Col>
-                            ))}
-                          </>
-                        )
-                    )}
-                  </Row>
-                </>
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div className="botones">
-              <div className="col-lg-6 col-sm-12">
-                <button
-                  type="submit"
-                  className="mybuttonFormstep1"
-                  onClick={handleButtonClick}
-                  disabled={!habilitarBoton}
+          <hr className="hr" />
+            <div className="d-flex justify-content-between align-items-center">
+              <div className="backarrow"  onClick={onPreviousButtonClick}>
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-chevron-left"
+                  viewBox="0 0 16 16"
                 >
-                  Aceptar
-                </button>
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+                  />
+                </svg>
               </div>
-              <div className="col-lg-6 col-sm-12">
-                <button
-                  type="button"
-                  className="mybuttonFormstep2 "
-                  onClick={onPreviousButtonClick}
-                >
-                  <ArrowLeft />
-                </button>
+              <div className="title_bar text-center">
+                CREACIÓN DEL PERFIL
+                <ProgressBar variant="info" now={100} />
+              </div>
+              <div className="espacio"></div>{" "}
+          
+            </div>
+            <hr className="hr_d" />
+
+
+            <img
+              className=" mt-4 mx-auto d-block mb-4"
+              src={LogoBive}
+              alt="Berrots"
+              width="70"
+              height="140"
+            />
+            <div className="check-buttons-wrapper mx-auto">
+              <div className="check-button-container">
+                <label htmlFor="nombre" className="titleS2">
+                  El servicio de recomendación se basa en datos proporcionados
+                  por proveedores de alimentos y fabricantes, pero no garantiza
+                  la precisión, integridad o actualización constante de la
+                  información. Los usuarios deben tener en cuenta que la
+                  información sobre alérgenos y productos puede cambiar sin
+                  previo aviso, y no nos hacemos responsables de los cambios en
+                  la composición de los alimentos. Se recomienda a los usuarios
+                  verificar directamente la información de los productos antes
+                  de su consumo. Además, el servicio se ofrece solo con fines
+                  informativos y de recomendación, no reemplaza el asesoramiento
+                  médico o profesional, por lo que se insta a los usuarios a
+                  seguir las indicaciones de los profesionales de la salud en
+                  caso de alergias o condiciones alimentarias específicas.
+                </label>
               </div>
             </div>
-      </FadeIn>
-    </Container>
+            <div className="box-f2">
+              <button
+                type="button"
+                className="mybuttonFormstep2new"
+                onClick={handleButtonClick}
+              >
+               Estoy de acuerdo
+              </button>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </div>
   );
 };
 export default Step8;
